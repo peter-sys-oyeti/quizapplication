@@ -5,7 +5,7 @@
         <title></title>
     </head>
     <body>
-        Well hey there!!!
+        <label id="username"></label>
         <script>
             const { ipcRenderer } = require("electron");
             ipcRenderer.send("get-username", "get username");
