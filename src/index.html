@@ -8,7 +8,7 @@
         Well hey there!!!
         <script>
             const { ipcRenderer } = require("electron");
-            ipcRenderer.send("get-usernane", "get username");
+            ipcRenderer.send("get-username", "get username");
             ipcRenderer.on("username-reply", (event, arg) => {
                 console.log(arg);
             });
