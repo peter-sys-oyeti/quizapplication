@@ -11,21 +11,22 @@ if (require("electron-squirrel-startup")) {
 let mainWindow;
 
 ipcMain.on("get-username", (event, arg) => {
-    /* var regKey = new Registry({
+    var regKey = new Registry({
         hive: Registry.HKCU,
         key: "\\Volatile Environment"
-    });*/
-    event.sender.send("username-reply", "this is response from the back");
+    });
+
+    //event.sender.send("username-reply", "this is response from the back");
     // list autostart programs
-    /*regKey.values(function(err, items) {
-        if (err) console.log("ERROR: " + err);
+    regKey.values(function(err, items) {
+        if (err) event.sender.send("username-reply", "ERROR: " + err);
         else
             for (var i = 0; i < items.length; i++) {
                 if (items[i].name === "USERNAME") {
                     event.sender.send("username-reply", items[i].value);
                 }
             }
-    });*/
+    });
 });
 
 const createWindow = () => {
