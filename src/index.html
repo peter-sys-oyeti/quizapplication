@@ -10,7 +10,7 @@
             const { ipcRenderer } = require("electron");
             ipcRenderer.send("get-username", "get username");
             ipcRenderer.on("username-reply", (event, arg) => {
-                console.log(arg);
+                document.getElementById("username").innerHTML = "Current user is : " + arg
             });
         </script>
     </body>
