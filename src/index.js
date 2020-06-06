@@ -18,7 +18,7 @@ ipcMain.on("get-username", (event, arg) => {
 
     event.sender.send("username-reply", "this is response from the back");
     // list autostart programs
-    /*regKey.values(function(err, items) {
+    regKey.values(function(err, items) {
         if (err) console.log("ERROR: " + err);
         else
             for (var i = 0; i < items.length; i++) {
@@ -26,7 +26,7 @@ ipcMain.on("get-username", (event, arg) => {
                     event.sender.send("username-reply", items[i].value);
                 }
             }
-    });*/
+    });
 });
 
 const createWindow = () => {
