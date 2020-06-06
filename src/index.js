@@ -11,10 +11,11 @@ if (require("electron-squirrel-startup")) {
 let mainWindow;
 
 ipcMain.on("get-username", (event, arg) => {
-    /* var regKey = new Registry({
+    var regKey = new Registry({
         hive: Registry.HKCU,
         key: "\\Volatile Environment"
-    });*/
+    });
+
     event.sender.send("username-reply", "this is response from the back");
     // list autostart programs
     /*regKey.values(function(err, items) {
