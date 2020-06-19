@@ -1,6 +1,5 @@
 import { app, BrowserWindow, ipcMain } from "electron";
 var Registry = require("winreg");
-// Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require("electron-squirrel-startup")) {
     // eslint-disable-line global-require
     app.quit();
