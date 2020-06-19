@@ -11651,6 +11651,11 @@ widest-line@^3.1.0:
   dependencies:
     string-width "^4.0.0"
 
+winreg@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/winreg/-/winreg-1.2.4.tgz#ba065629b7a925130e15779108cf540990e98d1b"
+  integrity sha1-ugZWKbepJRMOFXeRCM9UCZDpjRs=
+
 word-wrap@~1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.3.tgz#610636f6b1f703891bd34771ccb17fb93b47079c"
