@@ -43,7 +43,7 @@ const SystemLoader = inject("store")(
                 <div className={styles.appContent}>
                     <Menu pointing fixed="top">
                         <Menu.Item>
-                            <Header size="small">Ashfi Pharmacy System</Header>
+                            <Header size="small">MTN Quiz App</Header>
                         </Menu.Item>
                     </Menu>
                     <main className={styles.mainContent}>
@@ -54,7 +54,7 @@ const SystemLoader = inject("store")(
                                     attached="top"
                                     style={{ width: "500px", margin: "auto" }}
                                 >
-                                    {"Login"}
+                                    {"System Loade"}
                                 </Header>
                                 <Segment
                                     attached
@@ -65,7 +65,7 @@ const SystemLoader = inject("store")(
                                     </Dimmer>
                                     <Form>
                                         <Divider />
-                                        <Button>Login</Button>
+                                        <Button>Proceed</Button>
                                     </Form>
                                 </Segment>
                             </Container>
