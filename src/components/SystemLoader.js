@@ -12,7 +12,7 @@ import {
 } from "semantic-ui-react";
 
 import { inject, observer } from "mobx-react";
-import { bootDatabase } from "./Bootstrapper";
+
 const styles = {
     root: {
         display: "flex",
@@ -36,8 +36,6 @@ const SystemLoader = inject("store")(
         const { history, store } = props;
         const [isDimmed, setDimmer] = useState(true);
 
-        bootDatabase(store, history);
-
         return (
             <div className={styles.root}>
                 <div className={styles.appContent}>
@@ -54,7 +52,7 @@ const SystemLoader = inject("store")(
                                     attached="top"
                                     style={{ width: "500px", margin: "auto" }}
                                 >
-                                    {"System Loade"}
+                                    {"System Loader"}
                                 </Header>
                                 <Segment
                                     attached
