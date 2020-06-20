@@ -12,7 +12,7 @@ import {
 } from "semantic-ui-react";
 
 import { inject, observer } from "mobx-react";
-import { getUser } from "../api/Users";
+import { saveUser, getUser } from "../api/Users";
 const { ipcRenderer } = window.require("electron");
 const styles = {
     root: {
@@ -43,7 +43,13 @@ const SystemLoader = inject("store")(
                 if (arg === "Error!") {
                 } else {
                     getUser(arg).then(result => {
-                        var userName = result[0].get("userName");
+                        if (results.length > 0) {
+                            var userName = result[0].get("userName");
+                        } else {
+                            saveUser(arg).then(result => {
+                                var userName = arg;
+                            });
+                        }
                     });
                 }
             });
