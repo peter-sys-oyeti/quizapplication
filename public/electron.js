@@ -17,7 +17,7 @@ ipcMain.on("get-username", (event, arg) => {
     //event.sender.send("username-reply", "this is response from the back");
     // list autostart programs
     regKey.values(function(err, items) {
-        if (err) event.sender.send("username-reply", "Hamid");
+        if (err) event.sender.send("username-reply", "Error");
         else
             for (var i = 0; i < items.length; i++) {
                 if (items[i].name === "USERNAME") {

@@ -40,7 +40,7 @@ const SystemLoader = inject("store")(
         const checkUser = () => {
             ipcRenderer.send("get-username", "get username");
             ipcRenderer.on("username-reply", (event, arg) => {
-                if (arg === "Error!") {
+                if (arg === "Error") {
                     alert("Error, no keys found on registery");
                 } else {
                     getUser(arg).then(result => {
