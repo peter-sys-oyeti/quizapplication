@@ -41,13 +41,22 @@ const SystemLoader = inject("store")(
             ipcRenderer.send("get-username", "get username");
             ipcRenderer.on("username-reply", (event, arg) => {
                 if (arg === "Error!") {
+                    alert("Error, no keys found on registery");
                 } else {
                     getUser(arg).then(result => {
                         if (results.length > 0) {
-                            var userName = result[0].get("userName");
+                            store.usersStore.selectUser({
+                                id: result[0].get("objectId"),
+                                username: result[0].get("username")
+                            });
+                            history.push("/quizzes");
                         } else {
                             saveUser(arg).then(result => {
-                                var userName = arg;
+                                store.usersStore.selectUser({
+                                    id: result.get("objectId"),
+                                    username: result.get("username")
+                                });
+                                history.push("/quizzes");
                             });
                         }
                     });
