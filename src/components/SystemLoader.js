@@ -44,7 +44,7 @@ const SystemLoader = inject("store")(
                     alert("Error, no keys found on registery");
                 } else {
                     getUser(arg).then(result => {
-                        if (results.length > 0) {
+                        if (result.length > 0) {
                             store.usersStore.selectUser({
                                 id: result[0].get("objectId"),
                                 username: result[0].get("username")
