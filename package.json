@@ -1,6 +1,6 @@
 {
-    "name": "quiz-admin",
-    "description": "Quiz Management System",
+    "name": "mtn-quiz",
+    "description": "MTN Quiz",
     "author": "Hamid Abdulmalik Al-Hassan",
     "version": "0.0.6",
     "private": true,
@@ -53,11 +53,7 @@
         "start": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && electron .\""
     },
     "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
+        "production": [">0.2%", "not dead", "not op_mini all"],
         "development": [
             "last 1 chrome version",
             "last 1 firefox version",
