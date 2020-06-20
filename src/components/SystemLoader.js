@@ -12,7 +12,8 @@ import {
 } from "semantic-ui-react";
 
 import { inject, observer } from "mobx-react";
-const { ipcRenderer } = window.require('electron');
+import { getUser } from "../api/Users";
+const { ipcRenderer } = window.require("electron");
 const styles = {
     root: {
         display: "flex",
@@ -39,10 +40,15 @@ const SystemLoader = inject("store")(
         const checkUser = () => {
             ipcRenderer.send("get-username", "get username");
             ipcRenderer.on("username-reply", (event, arg) => {
-                console.log(arg);
+                if (arg === "Error!") {
+                } else {
+                    getUser(arg).then(result => {
+                        var userName = result[0].get("userName");
+                    });
+                }
             });
         };
-        checkUser()
+        checkUser();
 
         return (
             <div className={styles.root}>
