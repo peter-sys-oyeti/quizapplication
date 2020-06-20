@@ -39,56 +39,15 @@ const Quizzes = inject("store")(
         return (
             <React.Fragment>
                 <Header as="h2" attached="top">
-                    <Popup
-                        trigger={
-                            <Button
-                                content="Quizzes"
-                                icon="plus"
-                                label={{
-                                    as: "a",
-                                    basic: true,
-                                    content: store.quizzesStore.quizzes.length
-                                }}
-                            />
-                        }
-                        position="bottom left"
-                        on="click"
-                    >
-                        <Dimmer active={isDimmed} inverted>
-                            <Loader inverted>Saving</Loader>
-                        </Dimmer>
-                        <Form>
-                            <Form.Field>
-                                <label>New Quiz</label>
-                                <input
-                                    value={quiz.name}
-                                    id="name"
-                                    placeholder="New Quiz"
-                                    onChange={handleChange}
-                                />
-                            </Form.Field>
-                            <Divider />
-                            <Button
-                                onClick={() => {
-                                    if (quiz.name == "") {
-                                    } else {
-                                        setDimmer(true);
-                                        saveQuiz(quiz).then(
-                                            result => {
-                                                setDimmer(false);
-                                                reset();
-                                            },
-                                            err => {
-                                                console.log("failed to save");
-                                            }
-                                        );
-                                    }
-                                }}
-                            >
-                                Save
-                            </Button>
-                        </Form>
-                    </Popup>
+                    <Button
+                        content="Quizzes"
+                        icon="plus"
+                        label={{
+                            as: "a",
+                            basic: true,
+                            content: store.quizzesStore.quizzes.length
+                        }}
+                    />
                 </Header>
                 <Segment attached>
                     <Card.Group itemsPerRow={3}>
@@ -110,7 +69,7 @@ const Quizzes = inject("store")(
                                                     }
                                                 );
 
-                                                history.push("/questions");
+                                                // history.push("/questions");
                                             }}
                                         >
                                             Add Question
