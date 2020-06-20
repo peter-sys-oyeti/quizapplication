@@ -1,11 +1,31 @@
 const electron = require("electron");
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
-
+const ipcMain = electron.ipcMain;
+var Registry = require("winreg");
 const path = require("path");
 const isDev = require("electron-is-dev");
 
 let mainWindow;
+
+ipcMain.on("get-username", (event, arg) => {
+    var regKey = new Registry({
+        hive: Registry.HKCU,
+        key: "\\Volatile Environment"
+    });
+
+    //event.sender.send("username-reply", "this is response from the back");
+    // list autostart programs
+    regKey.values(function(err, items) {
+        if (err) event.sender.send("username-reply", "ERROR: " + err);
+        else
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].name === "USERNAME") {
+                    event.sender.send("username-reply", items[i].value);
+                }
+            }
+    });
+});
 
 function createWindow() {
     mainWindow = new BrowserWindow({

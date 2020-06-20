@@ -12,7 +12,7 @@ import {
 } from "semantic-ui-react";
 
 import { inject, observer } from "mobx-react";
-
+const { ipcRenderer } = window.require('electron');
 const styles = {
     root: {
         display: "flex",
@@ -35,6 +35,14 @@ const SystemLoader = inject("store")(
     observer(props => {
         const { history, store } = props;
         const [isDimmed, setDimmer] = useState(true);
+
+        const checkUser = () => {
+            ipcRenderer.send("get-username", "get username");
+            ipcRenderer.on("username-reply", (event, arg) => {
+                console.log(arg);
+            });
+        };
+        checkUser()
 
         return (
             <div className={styles.root}>
