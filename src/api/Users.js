@@ -9,7 +9,7 @@ export const saveUser = newUser => {
 export const getUser = userName => {
     const Users = InitApi.parse.Object.extend("Users");
     const query = new InitApi.parse.Query(Users);
-    query.equalTo("userName", userName);
+    query.equalTo("username", userName);
     return query.find();
 };
 
