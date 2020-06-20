@@ -5,7 +5,7 @@ export const User = types.model("User", {
     username: types.string
 });
 
-export const UserStore = types
+export const UsersStore = types
     .model("UserStore", {
         isLoaded: true,
         users: types.array(User),
