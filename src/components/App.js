@@ -45,13 +45,16 @@ class App extends React.Component {
                             active={this.state.activeItem === "quizzes"}
                             onClick={this.handleItemClick}
                             as={Link}
-                            to="/quizzes"
+                            to="/app/quizzes"
                         />
 
                         <Menu.Menu position="right">
                             <Menu.Item
-                                name="reports"
-                                active={this.state.activeItem === "reports"}
+                                name={store.usersStore.user}
+                                active={
+                                    this.state.activeItem ===
+                                    store.usersStore.user
+                                }
                                 onClick={this.handleItemClick}
                             />
                         </Menu.Menu>
@@ -61,12 +64,12 @@ class App extends React.Component {
                             <Container style={{ marginTop: "5em" }}>
                                 <Switch>
                                     <Route
-                                        path="/quizzes"
+                                        path="/app/quizzes"
                                         component={Quizzes}
                                     />
 
                                     <Route
-                                        path="/questions"
+                                        path="/app/questions"
                                         component={Questions}
                                     />
                                 </Switch>
