@@ -46,17 +46,17 @@ const SystemLoader = inject("store")(
                     getUser(arg).then(result => {
                         if (result.length > 0) {
                             store.usersStore.selectUser({
-                                id: result[0].get("objectId"),
+                                id: result[0].id,
                                 username: result[0].get("username")
                             });
-                            history.push("/quizzes");
+                            history.push("/app");
                         } else {
-                            saveUser(arg).then(result => {
+                            saveUser({ username: arg }).then(result => {
                                 store.usersStore.selectUser({
-                                    id: result.get("objectId"),
+                                    id: result.id,
                                     username: result.get("username")
                                 });
-                                history.push("/quizzes");
+                                history.push("/app");
                             });
                         }
                     });

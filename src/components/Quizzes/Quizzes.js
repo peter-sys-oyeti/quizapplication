@@ -41,7 +41,7 @@ const Quizzes = inject("store")(
                 <Header as="h2" attached="top">
                     <Button
                         content="Quizzes"
-                        icon="plus"
+                        icon="question"
                         label={{
                             as: "a",
                             basic: true,
@@ -72,7 +72,7 @@ const Quizzes = inject("store")(
                                                 // history.push("/questions");
                                             }}
                                         >
-                                            Add Question
+                                            Attempt Quiz
                                         </Button>
                                     </div>
                                 </Card.Content>

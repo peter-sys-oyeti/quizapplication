@@ -48,16 +48,11 @@ class App extends React.Component {
                             to="/app/quizzes"
                         />
 
-                        <Menu.Menu position="right">
-                            <Menu.Item
-                                name={store.usersStore.user}
-                                active={
-                                    this.state.activeItem ===
-                                    store.usersStore.user
-                                }
-                                onClick={this.handleItemClick}
-                            />
-                        </Menu.Menu>
+                        <Menu.Item position="right">
+                            <Header size="small">
+                                {store.usersStore.user.username}
+                            </Header>
+                        </Menu.Item>
                     </Menu>
                     <main className={styles.mainContent}>
                         <React.Fragment>
